@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated ID Card</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body onload="renderCardPage()">
+    <main class="card-page">
+        <header class="card-page-header">
+            <div>
+                <p class="eyebrow">Generated ID Card</p>
+                <h1>Front and Back Side</h1>
+            </div>
+            <div class="card-actions">
+                <a href="index.html">Edit Details</a>
+                <button type="button" onclick="window.print()">Print ID Card</button>
+            </div>
+        </header>
+
+        <section class="card-sheet" id="card_sheet">
+            <article class="ace-card-front">
+                <div class="ace-top">
+                    <div class="ace-logo">ACE</div>
+                    <div>
+                        <h2 id="front_college">College Name</h2>
+                        <p id="front_college_info">College details</p>
+                        <span>IDENTITY CARD</span>
+                    </div>
+                </div>
+
+                <div class="ace-front-body">
+                    <div class="ace-photo-wrap">
+                        <img src="" alt="Student photo" id="front_photo">
+                        <div class="ace-photo-placeholder" id="front_photo_placeholder">Photo</div>
+                        <p>Valid Till : <strong id="front_valid">-</strong></p>
+                    </div>
+
+                    <div class="ace-front-details">
+                        <p><span>Name</span><strong id="front_name">-</strong></p>
+                        <p><span>Roll No</span><strong id="front_roll">-</strong></p>
+                        <p><span>Branch</span><strong id="front_branch">-</strong></p>
+                        <p><span>Batch</span><strong id="front_batch">-</strong></p>
+                    </div>
+                </div>
+
+                <div class="ace-signature">PRINCIPAL</div>
+            </article>
+
+            <article class="ace-card-back">
+                <div class="back-details">
+                    <p><span>DOB</span><strong id="back_dob">-</strong></p>
+                    <p><span>B.G</span><strong id="back_blood">-</strong></p>
+                    <p><span>ADDRESS</span><strong id="back_address">-</strong></p>
+                    <p><span>PHONE</span><strong id="back_phone">-</strong></p>
+                </div>
+
+                <div class="barcode">
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                    <span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <p class="barcode-text" id="back_roll">-</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>
