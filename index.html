@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Card Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <main class="page">
+        <header class="site-header">
+            <div class="brand">MDS ID STUDIO</div>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#generator">Generator</a>
+            </nav>
+        </header>
+
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <p class="eyebrow">Student ID Card Generator</p>
+                <h1>Design and generate college ID cards</h1>
+                <p class="hero-text">Create a student roll number, add student details, then generate front and back ID card sides on a separate page.</p>
+                <a class="hero-button" href="#generator">Start Creating</a>
+            </div>
+
+            <div class="sample-card">
+                <div class="sample-card-header">
+                    <span>College Name</span>
+                    <small>Student Identity Card</small>
+                </div>
+                <div class="sample-photo">Photo</div>
+                <h2>Micheal D. Sebastian</h2>
+                <p>B25CS094</p>
+                <div class="sample-lines">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </section>
+
+        <section class="generator-section" id="generator">
+    <form action="" onsubmit="generateIdCard(event)">
+        <h1>ID Card Generator</h1>
+        <label for="college_name"><b>College Name</b></label>
+        <input type="text" placeholder="Enter College Name" name="college_name" id="college_name" required>
+
+        <label for="template"><b>ID Card Template</b></label>
+        <select id="template" onchange="updateTemplatePreview()" required>
+            <option value="ace">ACE College Blue</option>
+            <option value="classic">Classic Green</option>
+            <option value="modern">Modern Blue</option>
+            <option value="dark">Dark Premium</option>
+            <option value="neon">Neon Tech</option>
+            <option value="royal">Royal Purple</option>
+            <option value="minimal">Minimal White</option>
+            <option value="sunset">Sunset Orange</option>
+        </select>
+
+        <label for="name"><b>Name</b></label>
+        <input type="text" placeholder="Enter Name" name="name" id="name" required>
+
+        <label for="dob"><b>Date Of birth</b></label>
+        <input type="date" name="dob" id="dob" required>
+
+        <label for="blood_group"><b>Blood Group</b></label>
+        <input type="text" placeholder="Enter Blood Group" name="blood_group" id="blood_group">
+
+        <label for="admission_year"><b>Admission Year</b></label>
+        <input type="number" placeholder="Enter Admission Year" name="admission_year" id="admission_year" min="2000" max="2100" required>
+
+        <label for="email"><b>Email</b></label>
+        <input type="email" placeholder="Enter Email" name="email" id="email" required>
+
+        <label for="ph_no"><b>Phone No</b></label>
+        <input type="tel" placeholder="Enter phone" name="ph_no" id="ph_no">
+
+        <label for="address"><b>Address</b></label>
+        <input type="text" placeholder="Enter Address" name="address" id="address">
+
+        <label for="photo"><b>Student Photo</b></label>
+        <input type="file" name="photo" id="photo" accept="image/*">
+
+        <label for="degree"><b>Select Degree</b></label>
+        <select id="degree" onchange="updateCourses()" required>
+            <option value="">Select Degree</option>
+            <option value="BE">B.E</option>
+            <option value="BTech">B.Tech</option>
+            <option value="ME">M.E</option>
+            <option value="MTech">M.Tech</option>
+            <option value="MBA">MBA</option>
+            <option value="MCA">MCA</option>
+            <option value="BArch">B.Arch</option>
+            <option value="BSc">B.Sc</option>
+            <option value="BCom">B.Com</option>
+        </select>
+
+        <label for="course"><b>Select Course</b></label>
+        <select id="course" required>
+            <option value="">Select Course</option>
+        </select>
+
+        <label for="batch"><b>Batch</b></label>
+        <input type="text" placeholder="Example: 2025-2029" name="batch" id="batch">
+
+        <label for="valid_till"><b>Valid Till</b></label>
+        <input type="text" placeholder="Example: 2029" name="valid_till" id="valid_till">
+
+        <label for="serial_no"><b>Serial Number</b></label>
+        <input type="number" placeholder="Enter Serial No 1-100" name="serial_no" id="serial_no" min="1" max="100" required>
+
+        <label for="roll_no"><b>Roll Number</b></label>
+        <input type="text" placeholder="Generated Roll Number" name="roll_no" id="roll_no" readonly>
+
+        <button type="button" onclick="generateRollNumber()">Generate Roll Number</button>
+
+        <input type="submit" value="Create Front & Back ID Card">
+    </form>
+
+    <section class="id-card" id="id_card">
+        <div class="id-header">
+            <h2 id="card_college">College Name</h2>
+            <p id="card_subtitle">Student Identity Card</p>
+        </div>
+
+        <div class="id-body">
+            <img src="" alt="Student photo" id="card_photo">
+            <div class="photo-placeholder" id="photo_placeholder">Photo</div>
+
+            <h3 id="card_name">Student Name</h3>
+            <p class="roll" id="card_roll">Roll No</p>
+
+            <div class="id-details">
+                <p><span>Degree</span><strong id="card_degree">-</strong></p>
+                <p><span>Branch</span><strong id="card_course">-</strong></p>
+                <p><span>Batch</span><strong id="card_batch">-</strong></p>
+                <p><span>Valid Till</span><strong id="card_valid_till">-</strong></p>
+                <p><span>Admission</span><strong id="card_year">-</strong></p>
+                <p><span>DOB</span><strong id="card_dob">-</strong></p>
+                <p><span>Blood Group</span><strong id="card_blood_group">-</strong></p>
+                <p><span>Email</span><strong id="card_email">-</strong></p>
+                <p><span>Phone</span><strong id="card_phone">-</strong></p>
+                <p><span>Address</span><strong id="card_address">-</strong></p>
+            </div>
+        </div>
+
+        <button type="button" class="print-button" onclick="window.print()">Print ID Card</button>
+    </section>
+        </section>
+    </main>
+</body>
+</html>
