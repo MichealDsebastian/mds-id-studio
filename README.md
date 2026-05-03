@@ -10,7 +10,7 @@ MDS ID Studio is a student ID card generator website built with HTML, CSS, and J
 - Automatic roll number generation
 - Front and back ID card page
 - Multiple ID card templates
-- Print ID card option
+- Download ID card as PDF option
 - Responsive design for PC and mobile
 
 ## Templates
