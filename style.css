@@ -1182,36 +1182,6 @@ input[type="submit"]:hover {
         width: 100%;
     }
 
-    .template-ace {
-        max-width: none;
-    }
-
-    .template-ace .id-header {
-        padding-left: 100px;
-    }
-
-    .template-ace .id-body {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .template-ace #card_photo,
-    .template-ace .photo-placeholder {
-        margin: 0 auto;
-    }
-
-    .template-ace .id-body h3,
-    .template-ace .roll,
-    .template-ace .id-details {
-        grid-column: auto;
-        grid-row: auto;
-        margin-top: 0;
-    }
-
-    .template-ace .id-details {
-        text-align: left;
-    }
-
     .generator-section {
         flex-direction: column;
         padding-left: 18px;
@@ -1224,28 +1194,6 @@ input[type="submit"]:hover {
     .card-actions {
         align-items: stretch;
         flex-direction: column;
-    }
-
-    .card-sheet {
-        grid-template-columns: 1fr;
-        gap: 22px;
-    }
-
-    .ace-front-body {
-        grid-template-columns: 1fr;
-    }
-
-    .ace-photo-wrap {
-        text-align: center;
-    }
-
-    .ace-photo-wrap img,
-    .ace-photo-placeholder {
-        margin: 0 auto;
-    }
-
-    .ace-card-back {
-        padding: 28px 24px;
     }
 
     form,
@@ -1268,8 +1216,9 @@ input[type="submit"]:hover {
     }
 
     .card-page {
-        width: min(100% - 24px, 680px);
+        width: calc(100% - 24px);
         padding-top: 24px;
+        overflow-x: auto;
     }
 
     .card-actions a,
@@ -1280,6 +1229,16 @@ input[type="submit"]:hover {
     .ace-card-front,
     .ace-card-back {
         border-radius: 12px;
+    }
+
+    .card-sheet {
+        grid-template-columns: repeat(2, minmax(320px, 1fr));
+        min-width: 920px;
+    }
+
+    .ace-card-front,
+    .ace-card-back {
+        max-width: none;
     }
 
     h1 {
@@ -1324,40 +1283,14 @@ input[type="submit"]:hover {
         font-size: 14px;
     }
 
-    .template-ace .id-header {
-        padding: 94px 16px 18px;
-        text-align: center;
-    }
-
-    .template-ace .id-header::before {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .ace-top {
-        grid-template-columns: 1fr;
-        justify-items: center;
-        text-align: center;
-    }
-
     .ace-top h2 {
         font-size: 21px;
     }
 
-    .ace-front-details p,
-    .back-details p {
-        grid-template-columns: 1fr;
-        gap: 3px;
-    }
-
     .ace-signature {
-        position: static;
-        padding: 0 24px 18px;
+        right: 20px;
+        bottom: 14px;
         text-align: right;
-    }
-
-    .ace-card-back {
-        padding: 24px 18px;
     }
 
     .barcode {
